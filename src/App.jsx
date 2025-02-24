@@ -1,18 +1,29 @@
-
-import './App.css'
-import Homepage from './components/homepage'
+import { useState } from 'react';
+import Editor from './Editor';
+import styles from './App.module.css';
 
 function App() {
- 
+  const [html, setHtml] = useState('<div>Hello, World!</div>');
+  const [css, setCss] = useState('body { background-color: #f0f0f0; }');
+  const [js, setJs] = useState('console.log("Hello, World!");');
 
   return (
-    <>
-      {/* <h1>hello it works</h1> */}
-
-
-      <Homepage/>
-    </>
-  )
+    <div className={styles.app}>
+      <h1>Template Editor</h1>
+      <div className={styles.editorContainer}>
+        <h2>HTML</h2>
+        <Editor mode="html" value={html} onChange={setHtml} />
+      </div>
+      <div className={styles.editorContainer}>
+        <h2>CSS</h2>
+        <Editor mode="css" value={css} onChange={setCss} />
+      </div>
+      <div className={styles.editorContainer}>
+        <h2>JavaScript</h2>
+        <Editor mode="javascript" value={js} onChange={setJs} />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;

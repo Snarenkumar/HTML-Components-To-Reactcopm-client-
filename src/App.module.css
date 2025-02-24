@@ -1,0 +1,12 @@
+.app {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .editorContainer {
+    margin-bottom: 20px;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
