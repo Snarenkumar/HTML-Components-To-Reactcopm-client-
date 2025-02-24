@@ -9,12 +9,13 @@
 
 .editorContainer {
    
-  margin-bottom: -17px; 
+  
   border-right-width: 33px; 
-  min-height: 4123px; /* Specific min-height */
+  margin-left: 5px;
   padding-right: 9px; /* Specific padding-right */
   padding-bottom: 0px; /* Specific padding-bottom */
-  border: 1px solid #ccc; /* Optional: Add border for visibility */
+  border: 1px solid #ccc;
+  z-index: 0px !important; /* Optional: Add border for visibility */
 }
 
 h1, h2 {

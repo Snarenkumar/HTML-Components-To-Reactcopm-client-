@@ -7,8 +7,7 @@ import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
-
-const Editor = ({ mode, value, onChange }) => {
+const Editor = ({ mode, value, onChange, id }) => {
   return (
     <AceEditor
       mode={mode}
@@ -22,6 +21,7 @@ const Editor = ({ mode, value, onChange }) => {
         showLineNumbers: true,
         tabSize: 2,
       }}
+      id={id} // Pass the id prop to AceEditor
     />
   );
 };
@@ -31,11 +31,13 @@ Editor.propTypes = {
   mode: PropTypes.oneOf(['html', 'css', 'javascript']).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  id: PropTypes.string, // Add id prop validation
 };
 
 // Default props
 Editor.defaultProps = {
   value: '',
+  id: '', // Default id
 };
 
 export default Editor;
