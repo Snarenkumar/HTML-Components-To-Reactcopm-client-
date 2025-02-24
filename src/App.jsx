@@ -10,17 +10,19 @@ function App() {
   return (
     <div className={styles.app}>
       <h1>Template Editor</h1>
-      <div className={styles.editorContainer}>
-        <h2>HTML</h2>
-        <Editor mode="html" value={html} onChange={setHtml} />
-      </div>
-      <div className={styles.editorContainer}>
-        <h2>CSS</h2>
-        <Editor mode="css" value={css} onChange={setCss} />
-      </div>
-      <div className={styles.editorContainer}>
-        <h2>JavaScript</h2>
-        <Editor mode="javascript" value={js} onChange={setJs} />
+      <div className={styles.contoleditor}>
+        <div className={styles.editorContainer}>
+          <h2>HTML</h2>
+          <Editor mode="html" value={html} onChange={setHtml} />
+        </div>
+        <div className={styles.editorContainer}>
+          <h2>CSS</h2>
+          <Editor mode="css" value={css} onChange={setCss} />
+        </div>
+        <div className={styles.editorContainer}>
+          <h2>JavaScript</h2>
+          <Editor mode="javascript" value={js} onChange={setJs} />
+        </div>
       </div>
     </div>
   );

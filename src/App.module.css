@@ -1,12 +1,22 @@
 .app {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .editorContainer {
-    margin-bottom: 20px;
-  }
-  
-  h1, h2 {
-    color: #333;
-  }
+  text-align: center;
+}
+
+.contoleditor {
+  display: flex;
+  flex-direction: row;
+}
+
+.editorContainer {
+   /* Specific margin-left */
+  margin-bottom: -17px; /* Specific margin-bottom */
+  border-right-width: 33px; /* Specific border-right-width */
+  min-height: 4123px; /* Specific min-height */
+  padding-right: 9px; /* Specific padding-right */
+  padding-bottom: 0px; /* Specific padding-bottom */
+  border: 1px solid #ccc; /* Optional: Add border for visibility */
+}
+
+h1, h2 {
+  color: #333;
+}
