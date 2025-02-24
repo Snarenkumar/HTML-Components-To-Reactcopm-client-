@@ -8,9 +8,9 @@
 }
 
 .editorContainer {
-   /* Specific margin-left */
-  margin-bottom: -17px; /* Specific margin-bottom */
-  border-right-width: 33px; /* Specific border-right-width */
+   
+  margin-bottom: -17px; 
+  border-right-width: 33px; 
   min-height: 4123px; /* Specific min-height */
   padding-right: 9px; /* Specific padding-right */
   padding-bottom: 0px; /* Specific padding-bottom */
