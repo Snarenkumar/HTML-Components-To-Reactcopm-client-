@@ -2,17 +2,26 @@ import { useState } from "react";
 import Editor from "./components/Editor";
 import styles from "./App.module.css";
 import Button from "./components/button/button";
+import Resultpage from "./components/resultpage/resultpage";
 
 function App() {
   const [html, setHtml] = useState('<div>Hello, World!</div>');
+
+
   const [css, setCss] = useState("body { background-color: #f0f0f0; }");
+
+
   const [js, setJs] = useState('console.log("Hello, World!");');
 
   // Function to send data to backend
+  
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
     const formData = { html, css, js };
+    console.log(html)
+    console.log(css)
+    console.log(js)
 
     try {
       const response = await fetch("http://localhost:5000/getReact", {
@@ -53,6 +62,11 @@ function App() {
           <Button type="submit" /> {/* Ensure it's a submit button */}
         </div>
       </form>
+
+
+      <div className="resultpage">
+        <Resultpage/>
+      </div>
     </div>
   );
 }
