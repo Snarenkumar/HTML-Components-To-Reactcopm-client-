@@ -5,7 +5,7 @@ import { useState } from "react";
 function Resultpage() {
 
 
-     const [react, setreact] = useState('<div>Hello, World!</div>')
+     const [react, setreact] = useState('<div>, World!</div>')
   return (
     <div>
 
@@ -15,7 +15,7 @@ function Resultpage() {
 
         <div className={styles.editorContainer}>
                     <h2>HTML</h2>
-                    <Editor mode="html" value={html} onChange={setHtml} />
+                    <Editor mode="html" value={react} onChange={setreact} />
                     </div>
     </div>
   )

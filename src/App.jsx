@@ -9,6 +9,7 @@ function App() {
 
 
   const [css, setCss] = useState("body { background-color: #f0f0f0; }");
+  const [open, setopen] = useState("true");
 
 
   const [js, setJs] = useState('console.log("Hello, World!");');
@@ -58,7 +59,7 @@ function App() {
             <Editor mode="javascript" value={js} onChange={setJs} />
           </div>
         </div>
-        <div className="buttonmoving">
+        <div className="buttonmoving" onClick={open}>
           <Button type="submit" /> {/* Ensure it's a submit button */}
         </div>
       </form>
