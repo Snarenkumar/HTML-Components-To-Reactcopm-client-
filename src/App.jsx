@@ -4,7 +4,36 @@ import styles from "./App.module.css";
 import Button from "./components/button/button";
 import Resultpage from "./components/resultpage/resultpage";
 
+
+
+
+
+
 function App() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+});
+
+const [response, setResponse] = useState("");
+
+const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+        const res = await axios.post("http://localhost:5000/submit", formData);
+        setResponse(res.data.message);
+        setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+        setResponse("Error submitting the form",error);
+    }
+};
+
   const [html, setHtml] = useState('<div>Hello, World!</div>');
 
 
