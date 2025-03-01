@@ -4,36 +4,14 @@ import styles from "./App.module.css";
 import Button from "./components/button/button";
 import Resultpage from "./components/resultpage/resultpage";
 
-
+import axios from "axios";
 
 
 
 
 function App() {
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-});
-
-const [response, setResponse] = useState("");
-
-const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-};
-
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-        const res = await axios.post("http://localhost:5000/submit", formData);
-        setResponse(res.data.message);
-        setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-        setResponse("Error submitting the form",error);
-    }
-};
-
+  const [response, setResponse] = useState("");
   const [html, setHtml] = useState('<div>Hello, World!</div>');
 
 
@@ -41,16 +19,25 @@ const handleSubmit = async (e) => {
   
 
   const [js, setJs] = useState('console.log("Hello, World!");');
+  const reactdata= 'console.log("Hello, World!");';
+  const modulecss= 'console.log("Hello, World!");';
 
   // Function to send data to backend
   
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
-    const formData = { html, css, js };
-    console.log(html)
-    console.log(css)
-    console.log(js)
+
+
+    try {
+      const res = await axios.post("http://localhost:5000/submit", formData);
+      setResponse(res.data.message);
+      setFormData({ name: "", email: "", message: "" });
+  } catch (error) {
+      setResponse("Error submitting the form",error);
+  }
+
+    
 
     try {
       const response = await fetch("http://localhost:5000/getReact", {
@@ -94,7 +81,7 @@ const handleSubmit = async (e) => {
 
 
       <div className="resultpage">
-        <Resultpage/>
+        <Resultpage value={reactdata} value2={modulecss}/>
       </div>
     </div>
   );
