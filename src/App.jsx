@@ -9,8 +9,7 @@ function App() {
 
 
   const [css, setCss] = useState("body { background-color: #f0f0f0; }");
-  const [open, setopen] = useState("true");
-
+  
 
   const [js, setJs] = useState('console.log("Hello, World!");');
 
