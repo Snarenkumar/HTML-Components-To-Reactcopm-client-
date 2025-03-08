@@ -1,39 +1,31 @@
 import  { useState, useEffect } from "react";
-import styles from "./Navbar.module.css";
+import "./navbar.less"; // Import LESS file
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isSidebarActive, setIsSidebarActive] = useState(false);
 
-  // Toggle dark mode
+  // Toggle Dark Mode
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark", !isDarkMode);
-    localStorage.setItem("mode", !isDarkMode ? "dark-mode" : "light-mode");
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    document.body.classList.toggle("dark", newDarkMode);
+    localStorage.setItem("mode", newDarkMode ? "dark-mode" : "light-mode");
   };
 
-  // Toggle search box
-  const toggleSearch = () => {
-    setIsSearchActive(!isSearchActive);
-  };
-
-  // Toggle sidebar
+  // Toggle Sidebar
   const toggleSidebar = () => {
     setIsSidebarActive(!isSidebarActive);
   };
 
-  // Close sidebar when clicking outside
+  // Close Sidebar when clicking outside
   const closeSidebar = (e) => {
-    if (
-      !e.target.closest(`.${styles.menu}`) &&
-      !e.target.closest(`.${styles.sidebarOpen}`)
-    ) {
+    if (!e.target.closest(".menu") && !e.target.closest(".sidebarOpen")) {
       setIsSidebarActive(false);
     }
   };
 
-  // Add event listener for closing the sidebar
   useEffect(() => {
     document.body.addEventListener("click", closeSidebar);
     return () => {
@@ -41,71 +33,55 @@ const Navbar = () => {
     };
   }, []);
 
+  // Restore Dark Mode from localStorage
+  useEffect(() => {
+    const savedMode = localStorage.getItem("mode");
+    if (savedMode === "dark-mode") {
+      setIsDarkMode(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
   return (
-    <nav className={`${styles.nav} ${isSidebarActive ? styles.active : ""}`}>
-      <div className={styles.navBar}>
-        <i
-          className={`bx bx-menu ${styles.sidebarOpen}`}
-          onClick={toggleSidebar}
-        ></i>
-        <span className={styles.logo}>
+    <nav className={`nav ${isSidebarActive ? "active" : ""}`}>
+      <div className="navBar">
+        <i className="bx bx-menu sidebarOpen" onClick={toggleSidebar}></i>
+        <span className="logo">
           <a href="#">CodingLab</a>
         </span>
 
-        <div className={`${styles.menu} ${isSidebarActive ? styles.active : ""}`}>
-          <div className={styles.logoToggle}>
-            <span className={styles.logo}>
+        <div className={`menu ${isSidebarActive ? "active" : ""}`}>
+          <div className="logoToggle">
+            <span className="logo">
               <a href="#">CodingLab</a>
             </span>
-            <i
-              className={`bx bx-x ${styles.sidebarClose}`}
-              onClick={toggleSidebar}
-            ></i>
+            <i className="bx bx-x sidebarClose" onClick={toggleSidebar}></i>
           </div>
 
-          <ul className={styles.navLinks}>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Portfolio</a>
-            </li>
-            <li>
-              <a href="#">Services</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
+          <ul className="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </div>
 
-        <div className={styles.darkLightSearchBox}>
-          <div className={styles.darkLight} onClick={toggleDarkMode}>
-            <i className={`bx bx-moon ${styles.moon}`}></i>
-            <i className={`bx bx-sun ${styles.sun}`}></i>
+        <div className="darkLightSearchBox">
+          <div className={`darkLight ${isDarkMode ? "active" : ""}`} onClick={toggleDarkMode}>
+            <i className="bx bx-moon"></i>
+            <i className="bx bx-sun"></i>
           </div>
 
-          <div className={styles.searchBox}>
-            <div
-              className={`${styles.searchToggle} ${
-                isSearchActive ? styles.active : ""
-              }`}
-              onClick={toggleSearch}
-            >
-              <i className={`bx bx-x ${styles.cancel}`}></i>
-              <i className={`bx bx-search ${styles.search}`}></i>
+          <div className="searchBox">
+            <div className={`searchToggle ${isSearchActive ? "active" : ""}`} onClick={() => setIsSearchActive(!isSearchActive)}>
+              <i className="bx bx-x"></i>
+              <i className="bx bx-search"></i>
             </div>
 
-            <div
-              className={`${styles.searchField} ${
-                isSearchActive ? styles.active : ""
-              }`}
-            >
+            <div className={`searchField ${isSearchActive ? "active" : ""}`}>
               <input type="text" placeholder="Search..." />
-              <i className={`bx bx-search`}></i>
+              <i className="bx bx-search"></i>
             </div>
           </div>
         </div>

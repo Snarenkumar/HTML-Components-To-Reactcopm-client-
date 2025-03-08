@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+:root {
+  --body-color: #e4e9f7;
+  --nav-color: #4070f4;
+  --side-nav: #010718;
+  --text-color: #fff;
+  --search-bar: #f2f2f2;
+  --search-text: #010718;
+}
+
+body {
+  background-color: var(--body-color);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s ease;
+}
+
+.dark {
+  --body-color: #18191a;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #ccc;
+  --search-bar: #242526;
+}
+
+/* Navbar */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: var(--nav-color);
+  z-index: 100;
+}
+
+.navBar {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Sidebar */
+.sidebarOpen {
+  color: var(--text-color);
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Sidebar Menu */
+.menu {
+  position: fixed;
+  height: 100%;
+  width: 320px;
+  left: -100%;
+  top: 0;
+  padding: 20px;
+  background-color: var(--side-nav);
+  transition: all 0.4s ease;
+}
+
+.nav.active .menu {
+  left: 0;
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+
+  li {
+    list-style: none;
+    margin: 0 10px;
+  }
+
+  a {
+    font-size: 17px;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+  }
+}
+
+/* Dark Mode & Search */
+.darkLightSearchBox {
+  display: flex;
+  align-items: center;
+}
+
+.darkLight {
+  i {
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+  }
+}
+
+/* Search Box */
+.searchBox {
+  position: relative;
+}
+
+.searchField {
+  position: absolute;
+  bottom: -85px;
+  right: 5px;
+  height: 50px;
+  width: 300px;
+  background-color: var(--nav-color);
+  padding: 3px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchBox.active .searchField {
+  bottom: -74px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive */
+@media (max-width: 790px) {
+  .sidebarOpen {
+    display: block;
+  }
+
+  .menu {
+    width: 320px;
+    left: -100%;
+  }
+
+  .menu.active {
+    left: 0;
+  }
+
+  .navLinks {
+    flex-direction: column;
+  }
+}
