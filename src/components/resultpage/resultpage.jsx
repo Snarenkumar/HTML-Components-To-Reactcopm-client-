@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 function ResultPage({ jsxCode, cssCode }) {
   return (
-    <div>
+    <div className={styles.outer}>
       <div className={styles.editorContainer}>
         <h2>React Component</h2>
         <Editor mode="jsx" value={jsxCode} onChange={() => {}} />

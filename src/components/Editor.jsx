@@ -26,6 +26,8 @@ const Editor = ({ mode, value, onChange, id }) => {
   );
 };
 
+
+
 // PropTypes validation
 Editor.propTypes = {
   mode: PropTypes.oneOf(['html', 'css', 'javascript']).isRequired,

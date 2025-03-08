@@ -3,6 +3,10 @@
   flex-direction: column;
   margin: 20px;
 }
+.outer {
+  display: flex;
+  
+}
 
 .editor {
   width: 450px !important;/* Fixed width */
