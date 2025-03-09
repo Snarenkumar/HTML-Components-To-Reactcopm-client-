@@ -48,11 +48,11 @@ body {
 
 
 
-/* Content (Unskewed Editors and Form) */
+
 .content {
   position: relative;
-  z-index: 3; /* Ensure content is above the skewed layers */
-  padding: 20px; /* Add padding for spacing */
+  z-index: 3; 
+  padding: 20px; 
 }
 
 /* Editor Styles */
