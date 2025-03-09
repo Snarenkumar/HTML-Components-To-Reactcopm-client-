@@ -42,7 +42,10 @@ function Homepage() {
 
       {/* Skewed Background */}
       <section id="wrapper" className={styles.skewed}>
+
+        
         <div className={`${styles.layer} ${styles.bottom}`}>
+        
           <div className={styles.contentWrap}>
             <div className={styles.contentBody}>
               <h1>Bottom Layer</h1>
