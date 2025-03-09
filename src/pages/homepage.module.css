@@ -106,12 +106,12 @@ body {
   }
 
   .contoleditor {
-    flex-direction: column; /* Stack editors vertically on smaller screens */
+    flex-direction: column; 
   }
 
   .top {
     width: 100vw; 
     margin-left: 0; 
-    transform: skew(0); /
+    transform: skew(0); 
   }
 }
