@@ -110,8 +110,8 @@ body {
   }
 
   .top {
-    width: 100vw; /* Full width on smaller screens */
-    margin-left: 0; /* Reset skew margin */
-    transform: skew(0); /* Remove skew on smaller screens */
+    width: 100vw; 
+    margin-left: 0; 
+    transform: skew(0); /
   }
 }
