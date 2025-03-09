@@ -1,128 +1,151 @@
-// Loginform.jsx
-import { useState, useEffect } from "react";
-import styles from "./loginform.module.css";
+import { useState } from "react";
+import styles from "./Loginform.module.css";
 
 const Loginform = () => {
-  const [showLogin, setShowLogin] = useState(true);
+  const [isLog, setIsLog] = useState(true);
 
-  useEffect(() => {
-    const loginToggle = document.getElementById("login-form-toggler");
-    const signupToggle = document.getElementById("signup-form-toggler");
-
-    const handleSignupToggle = () => {
-      setShowLogin(false);
-    };
-
-    const handleLoginToggle = () => {
-      setShowLogin(true);
-    };
-
-    signupToggle.addEventListener("click", handleSignupToggle);
-    loginToggle.addEventListener("click", handleLoginToggle);
-
-    return () => {
-      signupToggle.removeEventListener("click", handleSignupToggle);
-      loginToggle.removeEventListener("click", handleLoginToggle);
-    };
-  }, []);
+  const handleCheckboxChange = () => {
+    setIsLog(!isLog);
+  };
 
   return (
-    <div className={styles["form-container"]}>
-      <div
-        className={styles["login-container"]}
-        style={{ transform: showLogin ? "scale(1)" : "scale(0)" }}
-        id="login-container"
-      >
-        <h1 className={styles.title}>Log In</h1>
-        <p className={styles.desc}>
-          Login to your account to upload or download pictures,videos or music
-        </p>
-        <div className={styles["input-container"]}>
-          <input
-            type="email"
-            placeholder="Enter Your Email Address"
-            autoFocus
-          />
+    <section>
+      <div className={styles.container}>
+        <div className={`${styles.row} ${styles.fullScreen} ${styles.alignItemsCenter}`}>
+          <div className={styles.left}>
+            <span className={styles.line}></span>
+            <h2>
+              Hello, I m Naren Kumar, <br /> a <span>Web Developer</span>
+            </h2>
+            <p>Web Design Tutorial using HTML & CSS</p>
+            <a href="#" className={styles.btn}>
+              Contact
+            </a>
+
+            <div className={styles.socialMedia}>
+              <a href="#">
+                <i className="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i className="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i className="fa-brands fa-youtube"></i>
+              </a>
+              <a href="#">
+                <i className="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          <div className={styles.right}>
+            <div className={styles.form}>
+              <div className={styles.textCenter}>
+                <h6>
+                  <span>Log In</span> <span>Sign Up</span>
+                </h6>
+                <input
+                  type="checkbox"
+                  className={styles.checkbox}
+                  id="reg-log"
+                  onChange={handleCheckboxChange}
+                  checked={!isLog}
+                />
+                <label htmlFor="reg-log"></label>
+                <div className={styles["card-3d-wrap"]}>
+                  <div className={styles["card-3d-wrapper"]}>
+                    <div className={styles["card-front"]}>
+                      <div className={styles["center-wrap"]}>
+                        <h4 className={styles.heading}>Log In</h4>
+                        <div className={styles["form-group"]}>
+                          <input
+                            type="email"
+                            className={styles["form-style"]}
+                            placeholder="Your Email"
+                            autoComplete="off"
+                          />
+                          <i className={`${styles["input-icon"]} material-icons`}>
+                            alternate_email
+                          </i>
+                        </div>
+
+                        <div className={styles["form-group"]}>
+                          <input
+                            type="password"
+                            className={styles["form-style"]}
+                            placeholder="Your Password"
+                            autoComplete="off"
+                          />
+                          <i className={`${styles["input-icon"]} material-icons`}>
+                            lock
+                          </i>
+                        </div>
+
+                        <a href="#" className={styles.btn}>
+                          Submit
+                        </a>
+                        <p className={styles.textCenter}>
+                          <a href="#" className={styles.link}>
+                            Forgot your password?
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className={styles["card-back"]}>
+                      <div className={styles["center-wrap"]}>
+                        <h4 className={styles.heading}>Sign Up</h4>
+                        <div className={styles["form-group"]}>
+                          <input
+                            type="text"
+                            className={styles["form-style"]}
+                            placeholder="Your Name"
+                            autoComplete="off"
+                          />
+                          <i className={`${styles["input-icon"]} material-icons`}>
+                            perm_identity
+                          </i>
+                        </div>
+
+                        <div className={styles["form-group"]}>
+                          <input
+                            type="email"
+                            className={styles["form-style"]}
+                            placeholder="Your Email"
+                            autoComplete="off"
+                          />
+                          <i className={`${styles["input-icon"]} material-icons`}>
+                            alternate_email
+                          </i>
+                        </div>
+
+                        <div className={styles["form-group"]}>
+                          <input
+                            type="password"
+                            className={styles["form-style"]}
+                            placeholder="Your Password"
+                            autoComplete="off"
+                          />
+                          <i className={`${styles["input-icon"]} material-icons`}>
+                            lock
+                          </i>
+                        </div>
+
+                        <a href="#" className={styles.btn}>
+                          Submit
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={styles["account-controls"]}>
-          <a href="">Forgot Password?</a>
-          <button>
-            Next <i className="fas fa-solid fa-angle-right"></i>
-          </button>
-        </div>
-        <span className={styles.line}></span>
-        <span className={styles["other-login-text"]}>Or log in with</span>
-        <div className={styles["social-logins"]}>
-          <button className={styles["social-login"]}>
-            <i
-              style={{ color: "#1e7bf2" }}
-              className="fas fa-brands fa-facebook-f"
-            ></i>
-          </button>
-          <button className={styles["social-login"]}>
-            <i
-              style={{ color: "#ea4335" }}
-              className="fas fa-brands fa-google"
-            ></i>
-          </button>
-        </div>
-        <span className={styles["signup-text"]}>
-          <p>{`Don't have an account yet? `}</p>
-          <a id="signup-form-toggler">Sign up</a>
-        </span>
       </div>
-      <div
-        className={styles["placeholder-banner"]}
-        id="banner"
-        style={{ transform: `translateX(${showLogin ? "0%" : "-100%"})` }}
-      >
-        <img
-          src="https://img.freepik.com/free-vector/abstract-flat-design-background_23-2148450082.jpg?size=626&ext=jpg&ga=GA1.1.1286474015.1708934801&semt=sph"
-          alt=""
-          className={styles.banner}
-        />
-      </div>
-      <div
-        className={styles["signup-container"]}
-        style={{ transform: showLogin ? "scale(0)" : "scale(1)" }}
-        id="signup-container"
-      >
-        <h1 className={styles.title}>Signup</h1>
-        <p className={styles.desc}>
-          Create your account to upload or download pictures,videos or music
-        </p>
-        <div className={styles["input-container"]}>
-          <input type="email" placeholder="Enter Your Email Address" />
-        </div>
-        <div className={styles["input-container"]}>
-          <input type="password" placeholder="Enter Your Password" />
-        </div>
-        <div className={styles["account-controls"]}>
-          <button>
-            Next <i className="fas fa-solid fa-angle-right"></i>
-          </button>
-        </div>
-        <span className={styles.line}></span>
-        <span className={styles["other-login-text"]}>Or Signup with</span>
-        <div className={styles["social-logins"]}>
-          <button className={styles["social-login"]}>
-            <i
-              style={{ color: "#1e7bf2" }}
-              className="fas fa-brands fa-facebook-f"
-            ></i>
-          </button>
-          <button className={styles["social-login"]}>
-            <i
-              style={{ color: "#ea4335" }}
-              className="fas fa-brands fa-google"
-            ></i>
-          </button>
-        </div>
-        <span className={styles["signup-text"]}>
-          Already have an account? <a id="login-form-toggler">Login here</a>
-        </span>
-      </div>
-    </div>
+    </section>
   );
 };
 

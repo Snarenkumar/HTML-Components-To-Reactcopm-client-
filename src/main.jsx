@@ -7,7 +7,7 @@ import { lazy, Suspense } from "react";
 import Navbar from "./navbar.jsx";
 // import "boxicons/css/boxicons.min.css";
 // Lazy load the LoginForm component
-const LoginForm = lazy(() => import("./pages/loginform"));
+const LoginForm = lazy(() => import("./pages/loginform.jsx"));
 
 // Render the app
 createRoot(document.getElementById("root")).render(
