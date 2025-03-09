@@ -39,6 +39,21 @@ function Homepage() {
   return (
     <div className={styles.Homepage}>
       <h1>Template Editor</h1>
+
+
+
+      <section id="wrapper" className="skewed">
+
+      <div className="layer bottom">
+        
+      </div>
+
+      <div className="layer top">
+        
+      </div>
+
+      
+    </section>
       <form onSubmit={handleSubmit}>
         <div className={styles.contoleditor}>
           <div className={styles.editorContainer}>

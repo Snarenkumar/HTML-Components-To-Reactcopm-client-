@@ -8,17 +8,6 @@
     flex-direction: row;
   }
   
-  .editorContainer {
-     
-    
-    border-right-width: 33px; 
-    margin-left: 5px;
-    padding-right: 9px; /* Specific padding-right */
-    padding-bottom: 0px; /* Specific padding-bottom */
-    border: 1px solid #ccc;
-    z-index: 0px !important; /* Optional: Add border for visibility */
-  }
   
-  h1, h2 {
-    color: #333;
-  }
+  
+ 
