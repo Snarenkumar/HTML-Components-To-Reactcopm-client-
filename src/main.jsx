@@ -21,6 +21,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<App />} />
           {/* Login route */}
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<LoginForm />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

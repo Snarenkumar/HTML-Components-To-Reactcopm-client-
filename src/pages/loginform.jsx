@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "./Loginform.module.css";
 
 const Loginform = () => {
   const [isLog, setIsLog] = useState(true);
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Use useEffect to navigate when isLog changes
+  useEffect(() => {
+    if (isLog) {
+      navigate("/login"); // Navigate to /login
+    } else {
+      navigate("/signup"); // Navigate to /signup
+    }
+  }, [isLog, navigate]);
 
   const handleCheckboxChange = () => {
-    setIsLog(!isLog);
+    setIsLog(!isLog); // Toggle isLog state
   };
 
   return (
     <section>
       <div className={styles.container}>
-        <div className={`${styles.row} ${styles.fullScreen} ${styles.alignItemsCenter}`}>
+        <div
+          className={`${styles.row} ${styles.fullScreen} ${styles.alignItemsCenter}`}
+        >
           <div className={styles.left}>
             <span className={styles.line}></span>
             <h2>
@@ -46,6 +59,7 @@ const Loginform = () => {
                 <h6>
                   <span>Log In</span> <span>Sign Up</span>
                 </h6>
+
                 <input
                   type="checkbox"
                   className={styles.checkbox}
@@ -56,9 +70,31 @@ const Loginform = () => {
                 <label htmlFor="reg-log"></label>
                 <div className={styles["card-3d-wrap"]}>
                   <div className={styles["card-3d-wrapper"]}>
+                    {/* Login Form */}
                     <div className={styles["card-front"]}>
                       <div className={styles["center-wrap"]}>
                         <h4 className={styles.heading}>Log In</h4>
+
+                        <p className={styles.textCenter}>
+                          <a href="#" className={styles.link}>
+                            <div className={styles.socialicon}>
+                              <i
+                                className={`fa-brands fa-google ${styles.iconsClr}`}
+                              ></i>
+                              <i
+                                className={`fa-brands fa-github ${styles.iconsClr}`}
+                              ></i>
+                              <i
+                                className={`fa-brands fa-x-twitter ${styles.iconsClr}`}
+                              ></i>
+                            </div>
+                          </a>
+                          <p className={styles.textCenter}>
+                            <a href="#" className={styles.link}>
+                              Or
+                            </a>
+                          </p>
+                        </p>
                         <div className={styles["form-group"]}>
                           <input
                             type="email"
@@ -66,7 +102,9 @@ const Loginform = () => {
                             placeholder="Your Email"
                             autoComplete="off"
                           />
-                          <i className={`${styles["input-icon"]} material-icons`}>
+                          <i
+                            className={`${styles["input-icon"]} material-icons`}
+                          >
                             alternate_email
                           </i>
                         </div>
@@ -78,7 +116,9 @@ const Loginform = () => {
                             placeholder="Your Password"
                             autoComplete="off"
                           />
-                          <i className={`${styles["input-icon"]} material-icons`}>
+                          <i
+                            className={`${styles["input-icon"]} material-icons`}
+                          >
                             lock
                           </i>
                         </div>
@@ -94,9 +134,30 @@ const Loginform = () => {
                       </div>
                     </div>
 
+                    {/* Sign Up Form */}
                     <div className={styles["card-back"]}>
                       <div className={styles["center-wrap"]}>
                         <h4 className={styles.heading}>Sign Up</h4>
+                        <p className={styles.textCenter}>
+                          <a href="#" className={styles.link}>
+                            <div className={styles.socialicon}>
+                              <i
+                                className={`fa-brands fa-google ${styles.iconsClr}`}
+                              ></i>
+                              <i
+                                className={`fa-brands fa-github ${styles.iconsClr}`}
+                              ></i>
+                              <i
+                                className={`fa-brands fa-x-twitter ${styles.iconsClr}`}
+                              ></i>
+                            </div>
+                          </a>
+                          <p className={styles.textCenter}>
+                            <a href="#" className={styles.link}>
+                              Or
+                            </a>
+                          </p>
+                        </p>
                         <div className={styles["form-group"]}>
                           <input
                             type="text"
@@ -104,7 +165,9 @@ const Loginform = () => {
                             placeholder="Your Name"
                             autoComplete="off"
                           />
-                          <i className={`${styles["input-icon"]} material-icons`}>
+                          <i
+                            className={`${styles["input-icon"]} material-icons`}
+                          >
                             perm_identity
                           </i>
                         </div>
@@ -116,7 +179,9 @@ const Loginform = () => {
                             placeholder="Your Email"
                             autoComplete="off"
                           />
-                          <i className={`${styles["input-icon"]} material-icons`}>
+                          <i
+                            className={`${styles["input-icon"]} material-icons`}
+                          >
                             alternate_email
                           </i>
                         </div>
@@ -128,7 +193,9 @@ const Loginform = () => {
                             placeholder="Your Password"
                             autoComplete="off"
                           />
-                          <i className={`${styles["input-icon"]} material-icons`}>
+                          <i
+                            className={`${styles["input-icon"]} material-icons`}
+                          >
                             lock
                           </i>
                         </div>
