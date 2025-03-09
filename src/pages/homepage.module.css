@@ -1,13 +1,117 @@
-.app {
-    margin-top: 75px;
-    text-align: center;
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrapper and Layers */
+#wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 55vw;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  width: 100vw;
+  min-height: 55vw;
+  overflow: hidden;
+}
+
+.bottom {
+  background: #000000;
+  z-index: 1;
+}
+
+.top {
+  background: #ffffff;
+  z-index: 2;
+  width: 50vw;
+}
+.handle{
+  position: absolute;
+  height: 100%;
+  display: block;
+  background-color: #FDAB00;
+  width: 5px;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+}
+
+.skewed .top {
+  transform: skew(-36deg);
+  margin-left: -1000px;
+  width: calc(37vw + 1054px);
+}
+
+
+
+/* Content (Unskewed Editors and Form) */
+.content {
+  position: relative;
+  z-index: 3; /* Ensure content is above the skewed layers */
+  padding: 20px; /* Add padding for spacing */
+}
+
+/* Editor Styles */
+.contoleditor {
+  display: flex;
+  flex-direction: row;
+   /* Add gap between editors */
+}
+
+.editorContainer {
+  flex: 1;
+  background: transparent;
+  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+}
+
+.editorContainer h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.html {
+  color: black;
+}
+
+.css {
+  color: black;
+}
+
+.js h2 {
+  color: white;
+}
+
+/* Button Styles */
+.buttonmoving {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Result Page Styles */
+.resultpage {
+  margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body {
+    font-size: 75%;
   }
-  
+
   .contoleditor {
-    display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Stack editors vertically on smaller screens */
   }
-  
-  
-  
- 
+
+  .top {
+    width: 100vw; /* Full width on smaller screens */
+    margin-left: 0; /* Reset skew margin */
+    transform: skew(0); /* Remove skew on smaller screens */
+  }
+}

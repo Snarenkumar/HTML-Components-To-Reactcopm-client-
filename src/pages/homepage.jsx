@@ -16,7 +16,7 @@ function Homepage() {
 
   // Function to send data to backend
   const handleSubmit = async (event) => {
-    event.preventDefault(); // ✅ Prevents form from reloading the page
+    event.preventDefault(); // Prevents form from reloading the page
 
     try {
       const response = await axios.post("http://localhost:5001/getReact", {
@@ -30,7 +30,7 @@ function Homepage() {
       console.log("Received JSX:", response.data.jsx);
       console.log("Received CSS:", response.data.css);
 
-      setActive(true); // ✅ Only activate after getting response
+      setActive(true); // Only activate after getting response
     } catch (error) {
       console.error("Error sending data:", error);
     }
@@ -38,47 +38,56 @@ function Homepage() {
 
   return (
     <div className={styles.Homepage}>
-      <h1>Template Editor</h1>
+     
 
-
-
-      <section id="wrapper" className="skewed">
-
-      <div className="layer bottom">
-        
-      </div>
-
-      <div className="layer top">
-        
-      </div>
-
-      
-    </section>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.contoleditor}>
-          <div className={styles.editorContainer}>
-            <h2>HTML</h2>
-            <Editor mode="html" value={html} onChange={setHtml} />
-          </div>
-          <div className={styles.editorContainer}>
-            <h2>CSS</h2>
-            <Editor mode="css" value={css} onChange={setCss} />
-          </div>
-          <div className={styles.editorContainer}>
-            <h2>JavaScript</h2>
-            <Editor mode="javascript" value={js} onChange={setJs} />
+      {/* Skewed Background */}
+      <section id="wrapper" className={styles.skewed}>
+        <div className={`${styles.layer} ${styles.bottom}`}>
+          <div className={styles.contentWrap}>
+            <div className={styles.contentBody}>
+              <h1>Bottom Layer</h1>
+            </div>
           </div>
         </div>
 
-        <div className="buttonmoving">
-          {/* ✅ Ensure the button submits the form correctly */}
-          <Button type="submit" />
+        <div className={`${styles.layer} ${styles.top}`}>
+          <div className={styles.contentWrap}>
+            <div className={styles.contentBody}>
+              <h1>Top Layer</h1>
+            </div>
+          </div>
         </div>
-      </form>
 
-      {/* ✅ Show ResultPage only when active is true */}
+
+      </section>
+
+      {/* Editors and Form */}
+      <div className={styles.content}>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.contoleditor}>
+            <div className={`${styles.html} ${styles.editorContainer}`}>
+              <h2>HTML</h2>
+              <Editor mode="html" value={html} onChange={setHtml} />
+            </div>
+            <div className={`${styles.css} ${styles.editorContainer}`}>
+              <h2>CSS</h2>
+              <Editor mode="css" value={css} onChange={setCss} />
+            </div>
+            <div className={`${styles.js} ${styles.editorContainer}`}>
+              <h2>JavaScript</h2>
+              <Editor mode="javascript" value={js} onChange={setJs} />
+            </div>
+          </div>
+
+          <div className={styles.buttonmoving}>
+            <Button type="submit" />
+          </div>
+        </form>
+      </div>
+
+      {/* Result Page */}
       {active && (
-        <div className="resultpage">
+        <div className={styles.resultpage}>
           <ResultPage jsxCode={reactData} cssCode={moduleCss} />
         </div>
       )}
