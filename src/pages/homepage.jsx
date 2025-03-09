@@ -61,7 +61,7 @@ function Homepage() {
 
       </section>
 
-      {/* Editors and Form */}
+      
       <div className={styles.content}>
         <form onSubmit={handleSubmit}>
           <div className={styles.contoleditor}>
