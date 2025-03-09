@@ -30,7 +30,7 @@ function Homepage() {
       console.log("Received JSX:", response.data.jsx);
       console.log("Received CSS:", response.data.css);
 
-      setActive(true); // Only activate after getting response
+      setActive(true); 
     } catch (error) {
       console.error("Error sending data:", error);
     }
