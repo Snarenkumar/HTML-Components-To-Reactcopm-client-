@@ -85,7 +85,7 @@ function Homepage() {
         </form>
       </div>
 
-      {/* Result Page */}
+      
       {active && (
         <div className={styles.resultpage}>
           <ResultPage jsxCode={reactData} cssCode={moduleCss} />
