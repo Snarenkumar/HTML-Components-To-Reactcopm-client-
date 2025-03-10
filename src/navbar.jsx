@@ -17,8 +17,8 @@ const Navbar = () => {
             <li><a href="#">Services</a></li>
             <li><a href="#">API<span className="span-nav">(BETA)</span></a></li>
             <li><a href="#">Feedback</a></li>
-            <li><a href="#" className="active">Login</a></li>
-            <li><a href="#">SignUp</a></li>
+            <li><a href="/login" className="active">Login</a></li>
+            <li><a href="/signup">SignUp</a></li>
           </ul>
         </div>
       </div>
