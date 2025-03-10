@@ -8,6 +8,9 @@ import 'ace-builds/src-noconflict/mode-css';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 const Editor = ({ mode, value, onChange, id }) => {
+
+
+ 
   return (
     <AceEditor
       mode={mode}

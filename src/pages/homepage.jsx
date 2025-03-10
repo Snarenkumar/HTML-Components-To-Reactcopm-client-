@@ -16,23 +16,23 @@ function Homepage() {
 
   // Function to send data to backend
   const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-    console.log("🔍 Sending data:", { html, css, js });
+    event.preventDefault(); 
   
     try {
-      const response = await axios.post(
-        "http://localhost:5001/api/react/getReact",
-        { html, css, js },
-        { withCredentials: true } // Important for authentication
-      );
+      const response = await axios.post("http://localhost:5001/getReact", { 
+        html, 
+        css, 
+        js 
+      });
   
-      console.log("✅ Response:", response.data);
       setReactData(response.data.jsx);
       setModuleCss(response.data.css);
-      setActive(true);
+      console.log("✅ Received JSX:", response.data.jsx);
+      console.log("✅ Received CSS:", response.data.css);
+
+      setActive(true); 
     } catch (error) {
-      console.error("❌ Error:", error.response?.data || error.message);
+      console.error("❌ Error sending data:", error);
     }
   };
   
