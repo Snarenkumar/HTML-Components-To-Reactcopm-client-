@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Editor from "../components/Editor";
+import Editor from "../../components/Editor";
 import styles from "./Homepage.module.css";
-import Button from "../components/button/button";
-import ResultPage from "../components/resultpage/resultpage";
+import Button from "../../components/button/button";
+import ResultPage from "../../components/resultpage/resultpage";
 import axios from "axios";
 
 function Homepage() {
@@ -19,11 +19,12 @@ function Homepage() {
     event.preventDefault(); 
   
     try {
-      const response = await axios.post("http://localhost:5001/getReact", { 
+      const response = await axios.post("http://localhost:5001/api/react/getReact", { 
         html, 
         css, 
         js 
       });
+      
   
       setReactData(response.data.jsx);
       setModuleCss(response.data.css);
