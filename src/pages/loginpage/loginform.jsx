@@ -33,7 +33,7 @@ const Loginform = () => {
       );
 
       alert(data.message);
-      if (isLog) navigate("/dashboard");
+      if (isLog) navigate("/");
     } catch (error) {
       console.error(
         "Registration/Login Error:",
@@ -142,7 +142,7 @@ const Loginform = () => {
                         </div>
                       </div>
 
-                      <div className={styles["form-group"]}>
+                      <div className={styles["form_group"]}>
                         <input
                           type="email"
                           placeholder="Your Email"
@@ -151,7 +151,7 @@ const Loginform = () => {
                         />
                       </div>
 
-                      <div className={styles["form-group"]}>
+                      <div className={`fields ${styles.form_group}`}>
                         <input
                           type="password"
                           placeholder="Your Password"

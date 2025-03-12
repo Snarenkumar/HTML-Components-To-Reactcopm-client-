@@ -177,7 +177,11 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
+
+
+
 .right h4 {
   font-weight: 600;
   color: var(--white);
