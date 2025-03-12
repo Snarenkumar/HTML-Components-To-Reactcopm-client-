@@ -2,7 +2,9 @@ import { useState } from "react";
 import Editor from "../../components/Editor";
 import styles from "./Homepage.module.css";
 import Button from "../../components/button/button";
-import ResultPage from "../../components/resultpage/resultpage";
+import Modal from "../models/model";
+import LivePreviewer from "../livepreview/LivePreviewer";
+import ResultPage from "../resultpage/resultpage";
 import axios from "axios";
 
 function Homepage() {
@@ -13,6 +15,7 @@ function Homepage() {
   const [reactData, setReactData] = useState("");
   const [moduleCss, setModuleCss] = useState("");
   const [active, setActive] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
 
   // Function to send data to backend
   const handleSubmit = async (event) => {
@@ -24,8 +27,7 @@ function Homepage() {
         css, 
         js 
       });
-      
-  
+
       setReactData(response.data.jsx);
       setModuleCss(response.data.css);
       console.log("✅ Received JSX:", response.data.jsx);
@@ -36,78 +38,40 @@ function Homepage() {
       console.error("❌ Error sending data:", error);
     }
   };
-  
 
   return (
     <div className={styles.Homepage}>
-     
-
-      {/* Skewed Background */}
-      <section id="wrapper" className={styles.skewed}>
-
-        
-        <div className={`${styles.layer} ${styles.bottom}`}>
-        
-          <div className={styles.contentWrap}>
-            <div className={styles.contentBody}>
-              <h1>Bottom Layer</h1>
-            </div>
-          </div>
-        </div>
-
-        <div className={`${styles.layer} ${styles.top}`}>
-          <div className={styles.contentWrap}>
-            <div className={styles.contentBody}>
-              <h1>Top Layer</h1>
-            </div>
-          </div>
-        </div>
-
-
-      </section>
-
-      
       <div className={styles.content}>
-        <div className={styles.textContent}>
-        <h1>Instant React Comp<span className={styles.diffcolor}>onent Generator</span></h1>
-        <div className={styles.textContentinner}>
-          <p>Instantly Convert Your HTML, CSS & JS into Well-Structured React Components!</p>
-        </div>
-        </div>
+        <h1>Instant React Component Generator</h1>
 
-        
         <form onSubmit={handleSubmit}>
           <div className={styles.contoleditor}>
-            <div className={`${styles.html} ${styles.editorContainer}`}>
-              <h2>HTML</h2>
-              <Editor mode="html" value={html} onChange={setHtml} />
-            </div>
-            <div className={`${styles.css} ${styles.editorContainer}`}>
-              <h2>CSS</h2>
-              <Editor mode="css" value={css} onChange={setCss} />
-            </div>
-            <div className={`${styles.js} ${styles.editorContainer}`}>
-              <h2>JavaScript</h2>
-              <Editor mode="javascript" value={js} onChange={setJs} />
-            </div>
+            <Editor mode="html" value={html} onChange={setHtml} />
+            <Editor mode="css" value={css} onChange={setCss} />
+            <Editor mode="javascript" value={js} onChange={setJs} />
           </div>
 
           <div className={styles.buttonmoving}>
             <div className={styles.finalbtns}>
-            <Button type="submit" text="Convert fields" />
-            <Button text="Priview the code " />
+              {/* Convert Button */}
+              <Button type="submit">Convert fields</Button>
+
+              {/* Preview Button (Opens Modal) */}
+              <Button onClick={() => setIsModalOpen(true)}>
+                .°˖✧ Preview the code
+              </Button>
             </div>
-            
           </div>
         </form>
       </div>
 
-      
-      {active && (
-        <div className={styles.resultpage}>
-          <ResultPage jsxCode={reactData} cssCode={moduleCss} />
-        </div>
-      )}
+      {active && <ResultPage jsxCode={reactData} cssCode={moduleCss} />}
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+  <LivePreviewer htmlcode={html} csscode={css} jscode={js} />
+</Modal>
+
+
     </div>
   );
 }

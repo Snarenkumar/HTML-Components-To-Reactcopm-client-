@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uiw/react-codemirror": "^4.23.10",
     "ace-builds": "^1.39.0",
     "axios": "^1.8.1",
     "boxicons": "^2.1.4",
+    "codemirror": "^6.0.1",
     "cors": "^2.8.5",
     "prop-types": "^15.8.1",
     "proptypes": "^1.1.0",

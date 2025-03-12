@@ -1,5 +1,5 @@
-import styles from "../Editor.module.css";
-import Editor from "../Editor";
+import styles from "../../components/Editor.module.css";
+import Editor from "../../components/Editor";
 import PropTypes from "prop-types";
 
 
