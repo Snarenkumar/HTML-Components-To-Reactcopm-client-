@@ -68,6 +68,14 @@ function Homepage() {
 
       
       <div className={styles.content}>
+        <div className={styles.textContent}>
+        <h1>Instant React Comp<span className={styles.diffcolor}>onent Generator</span></h1>
+        <div className={styles.textContentinner}>
+          <p>Instantly Convert Your HTML, CSS & JS into Well-Structured React Components!</p>
+        </div>
+        </div>
+
+        
         <form onSubmit={handleSubmit}>
           <div className={styles.contoleditor}>
             <div className={`${styles.html} ${styles.editorContainer}`}>
