@@ -93,7 +93,11 @@ function Homepage() {
           </div>
 
           <div className={styles.buttonmoving}>
-            <Button type="submit" />
+            <div className={styles.finalbtns}>
+            <Button type="submit" text="Convert fields" />
+            <Button text="Priview the code " />
+            </div>
+            
           </div>
         </form>
       </div>
