@@ -97,7 +97,9 @@ const Loginform = () => {
                     Sign Up
                   </span>
                 </h6>
-                <input
+                
+              </div>
+              <input
                 type="checkbox"
                 className={styles.checkbox}
                 id="reg-log"
@@ -105,7 +107,6 @@ const Loginform = () => {
                 checked={!isLog}
               />
               <label htmlFor="reg-log"></label>
-              </div>
 
               
 
