@@ -81,7 +81,7 @@ const Loginform = () => {
           {/* Right Section (Login & Signup Forms) */}
           <div className={styles.right}>
             <div className={styles.form}>
-              <div className={styles.textCenter}>
+              <div className={`${styles.textCenter}  ${styles.displayflex}`}>
                 <h6>
                   <span
                     className={isLog ? styles.activeTab : ""}
@@ -97,9 +97,7 @@ const Loginform = () => {
                     Sign Up
                   </span>
                 </h6>
-              </div>
-
-              <input
+                <input
                 type="checkbox"
                 className={styles.checkbox}
                 id="reg-log"
@@ -107,6 +105,9 @@ const Loginform = () => {
                 checked={!isLog}
               />
               <label htmlFor="reg-log"></label>
+              </div>
+
+              
 
               {/* 3D Card Wrapper with Flip Effect */}
               <div
@@ -162,7 +163,9 @@ const Loginform = () => {
                         Log In
                       </button>
 
-                      <p className={styles.textCenter}>
+                      <p
+                        className={`${styles.textCenter}  ${styles.displaylogin}`}
+                      >
                         <a href="#" className={styles.link}>
                           Forgot your password?
                         </a>

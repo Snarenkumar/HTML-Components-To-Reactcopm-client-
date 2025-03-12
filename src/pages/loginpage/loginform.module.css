@@ -85,6 +85,11 @@ ul {
 }
 .textCenter {
   text-align: center;
+  
+}
+.displayflex {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -170,6 +175,7 @@ ul {
 .form {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .right h4 {
@@ -245,7 +251,8 @@ input[type="checkbox"] {
   width: 400px;
   max-width: 100%;
   height: 400px;
-  margin-top: 60px;
+  margin-top: 20px;
+  margin-left: 35px;
   transform-style: preserve-3d;
   perspective: 800px;
 }
