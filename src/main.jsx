@@ -5,21 +5,22 @@ import App from "./App.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Navbar from "./navbar.jsx";
-// import "boxicons/css/boxicons.min.css";
-// Lazy load the LoginForm component
+import ProtectedRoute from "./ProtectedRoute"; // ✅ Import ProtectedRoute
+
 const LoginForm = lazy(() => import("./pages/loginpage/loginform.jsx"));
 
-// Render the app
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      {/* Navbar outside Routes to make it appear on all pages */}
       <Navbar />
       <Suspense fallback={<div className="loading">Loading...</div>}>
         <Routes>
-          {/* Main route */}
-          <Route path="/"  element={<App />} />
-          {/* Login route */}
+          {/* ✅ Protect the main app */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<App />} />
+          </Route>
+
+          {/* Login & Signup Routes */}
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<LoginForm />} />
         </Routes>
