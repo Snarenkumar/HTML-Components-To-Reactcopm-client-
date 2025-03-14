@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import styles from "./Loginform.module.css";
+import styles from "./loginform.module.css";
 
 const Loginform = () => {
   const [isLog, setIsLog] = useState(true);
