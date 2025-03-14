@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Editor from "../../components/Editor";
-import styles from "./Homepage.module.css";
+import styles from "./homepage.module.css";
 import Button from "../../components/button/button";
 import Modal from "../models/model";
 import LivePreviewer from "../livepreview/LivePreviewer";
